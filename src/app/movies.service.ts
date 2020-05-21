@@ -5,14 +5,18 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class MoviesService {
-  apiUrl: string = "https://api.themoviedb.org/3/movie/550";
+  apiUrl: string = "https://www.themoviedb.org/3/movie?";
   apiKey: string = "780adf32117a98ba4db8e7489d68fc1b";
   constructor(private http: HttpClient) { }
 
-  getData(): any {
+  getData(rating, genre, runtime): any {
     return this.http.get(this.apiUrl, {
       params: {
-        api_key: this.apiKey
+        api_key: this.apiKey,
+        rating: rating,
+        genre: genre,
+        runtime: runtime
+
       }
     })
   }

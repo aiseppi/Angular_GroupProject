@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { MoviesService } from '../movies.service';
 
 @Component({
   selector: 'app-movie-list',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./movie-list.component.css']
 })
 export class MovieListComponent implements OnInit {
+  data: any;
 
-  constructor() { }
+  constructor(private service: MoviesService) { }
 
   ngOnInit(): void {
   }
-
+  getData(form: NgForm) {
+    this.service.getData(form.value.rating, form.value.genre, form.value.runtime).subscribe((response) => {
+      this.data = response;
+      console.log(response);
+    })
+  }
 }

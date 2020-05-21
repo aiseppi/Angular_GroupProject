@@ -1,8 +1,19 @@
 <form #movieForm="ngForm" (ngSubmit)=getData(movieForm)>
-    <select name="" id="">
+    <select name="rating" id="rating" ngModel>
+        <option value="">Select Rating</option>
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
 
     </select>
-    <select name="genre" id="genre">
+    <select name="genre" id="genre" ngModel>
         <option value="">Select Genre</option>
         <option value="action">Action</option>
         <option value="adventure">Adventure</option>
@@ -24,8 +35,13 @@
         <option value="war">War</option>
         <option value="western">Western</option>
     </select>
-    <select name="" id=""></select>
+    <select name="runtime" id="runtime" ngModel>
+        <option value="">Select Runtime</option>
+        <option value="lt1">Under 1hr</option>
+        <option value="lt2">Under 2hr</option>
+        <option value="lt3">Under 3hr</option>
+        <option value="lt4">Under 4hr</option>
 
-
-
+    </select>
+    <button>Submit</button>
 </form>
