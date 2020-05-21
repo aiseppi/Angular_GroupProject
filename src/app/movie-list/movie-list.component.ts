@@ -15,7 +15,8 @@ export class MovieListComponent implements OnInit {
   ngOnInit(): void {
   }
   getData(form: NgForm) {
-    this.service.getData(form.value.rating, form.value.genre, form.value.runtime).subscribe((response) => {
+    console.log(form.value)
+    this.service.getData(form.value.genre, form.value.runtime).subscribe((response) => {
       this.data = response;
       console.log(response);
     })
