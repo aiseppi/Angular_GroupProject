@@ -1,47 +1,31 @@
 <form #movieForm="ngForm" (ngSubmit)=getData(movieForm)>
-  <select name="rating" id="rating" ngModel>
-    <option value="">Select Rating</option>
-    <option value="0">0</option>
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-    <option value="6">6</option>
-    <option value="7">7</option>
-    <option value="8">8</option>
-    <option value="9">9</option>
+    <select name="rating" id="rating" ngModel>
+        <option value="">Select Minimum Rating</option>
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
 
-  </select>
-  <select name="genre" id="genre" ngModel>
-    <option value="">Select Genre</option>
-    <option value="28">Action</option>
-    <option value="12">Adventure</option>
-    <option value="16">Animation</option>
-    <option value="35">Comedy</option>
-    <option value="80">Crime</option>
-    <option value="99">Documentary</option>
-    <option value="18">Drama</option>
-    <option value="10751">Family</option>
-    <option value="14">Fantasy</option>
-    <option value="36">History</option>
-    <option value="27">Horror</option>
-    <option value="10402">Music</option>
-    <option value="9648">Mystery</option>
-    <option value="10749">Romance</option>
-    <option value="878">Science Fiction</option>
-    <option value="10770">TV Movie</option>
-    <option value="53">Thriller</option>
-    <option value="10752">War</option>
-    <option value="37">Western</option>
-  </select>
-  <select name="runtime" id="runtime" ngModel>
-    <option value="">Select Runtime</option>
-    <option value="59">Over 1hr</option>
-    <option value="119">Over 2hr</option>
-    <option value="179">Over 3hr</option>
-    <option value="239">Over 4hr</option>
+    </select>
+    <select name="genre" id="genre" ngModel>
+        <option value="">Select Genre</option>
+        <option *ngFor="let genre of genreResponse?.genres" [value]="genre.id">{{genre.name}}</option>
 
-  </select>
-  <button>Submit</button>
+    </select>
+    <select name="certification" id="certification" ngModel>
+        <option value="">Select Rating</option>
+        <option value="NR">NR </option>
+        <option value="PG">PG</option>
+        <option value="PG-13">PG-13</option>
+        <option value="R">R</option>
+        <option value="NC-17">NC-17</option>
+
+    </select>
+    <button>Submit</button>
 </form>

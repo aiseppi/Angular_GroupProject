@@ -9,14 +9,18 @@ import { MoviesService } from '../movies.service';
 })
 export class MovieListComponent implements OnInit {
   data: any;
-
+  genreResponse: any;
   constructor(private service: MoviesService) { }
 
   ngOnInit(): void {
+    this.service.getGenres().subscribe((response) => {
+      this.genreResponse = response;
+      console.log(response);
+    })
   }
   getData(form: NgForm) {
     console.log(form.value)
-    this.service.getData(form.value.genre, form.value.runtime).subscribe((response) => {
+    this.service.getData(form.value.rating, form.value.genre, form.value.certification).subscribe((response) => {
       this.data = response;
       console.log(response);
     })
