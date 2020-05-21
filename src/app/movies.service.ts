@@ -10,6 +10,7 @@ export class MoviesService {
   country: string = "US";
   discoverEndpoint: string = `${this.baseUrl}/discover/movie`;
   genreEndpoint: string = `${this.baseUrl}/genre/movie/list`;;
+  certificationEndpoint: string = `${this.baseUrl}/certification/movie/list`
   // runtime1: string = "with_runtime.lte";
   constructor(private http: HttpClient) { }
 
@@ -17,8 +18,14 @@ export class MoviesService {
     return this.http.get(this.genreEndpoint, {
       params: { api_key: this.apiKey }
     })
-
   }
+
+  getCerts() {
+    return this.http.get(this.certificationEndpoint, {
+      params: { api_key: this.apiKey }
+    })
+  }
+
   getData(rating, genre, certification): any {
     let parameters: any = {
       api_key: this.apiKey,

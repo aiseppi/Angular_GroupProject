@@ -10,11 +10,16 @@ import { MoviesService } from '../movies.service';
 export class MovieListComponent implements OnInit {
   data: any;
   genreResponse: any;
+  certResponse: any;
   constructor(private service: MoviesService) { }
 
   ngOnInit(): void {
     this.service.getGenres().subscribe((response) => {
       this.genreResponse = response;
+      console.log(response);
+    });
+    this.service.getCerts().subscribe((response) => {
+      this.certResponse = response;
       console.log(response);
     })
   }
