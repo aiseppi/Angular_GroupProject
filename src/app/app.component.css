@@ -1,0 +1,21 @@
+.head_buttonDiv{
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.wrapper{
+  background-color: darkgray;
+  display: flex;
+  flex-direction: column;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 1%;
+}
+.title{
+  font-size: 100px;
+  color: rgb(66,66,66);
+}
+/* .router{
+  flex: 1;
+  min-height: 100vh
+} */

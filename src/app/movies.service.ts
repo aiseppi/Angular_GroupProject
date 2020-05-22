@@ -12,7 +12,14 @@ export class MoviesService {
   discoverEndpoint: string = `${this.baseUrl}/discover/movie`;
   genreEndpoint: string = `${this.baseUrl}/genre/movie/list`;;
   certificationEndpoint: string = `${this.baseUrl}/certification/movie/list`;
-  movie: Movie
+  movie: Movie[] =
+    [
+      {
+        posterPath: "/c01Y4suApJ1Wic2xLmaq1QYcfoZ.jpg",
+        title: "Fight Club",
+        voteAverage: 10,
+      }
+    ]
   // runtime1: string = "with_runtime.lte";
   constructor(private http: HttpClient) { }
 
@@ -37,10 +44,20 @@ export class MoviesService {
     parameters.with_genres = genre;
     parameters.certification = certification;
 
+
     return this.http.get(this.discoverEndpoint, {
       params: parameters
     })
   }
+  // setData(movies: Movie[]): void {
+  //   
+  // }
 
+  //   getMovies(poster, title, genre, certification, rating): any {
+  //     let parameters: any = {
+  //       api_key: this.apiKey,
+  //     };
+  // parameters.poster_path = poster
+  //   }
 }
 

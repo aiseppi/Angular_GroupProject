@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MoviesService } from '../movies.service';
+import { Movie } from '../interfaces/movie';
 
 @Component({
   selector: 'app-movie-list',
@@ -8,18 +9,18 @@ import { MoviesService } from '../movies.service';
   styleUrls: ['./movie-list.component.css']
 })
 export class MovieListComponent implements OnInit {
-  data: any;
-
+  @Input() data: any;
+  // movies: Movie[] = [];
   constructor(private service: MoviesService) { }
 
   ngOnInit(): void {
-
+    // this.movies = this.service.getData()
   }
-  getData(form: NgForm) {
-    console.log(form.value)
-    this.service.getData(form.value.rating, form.value.genre, form.value.certification).subscribe((response) => {
-      this.data = response;
-      console.log(response);
-    })
-  }
+  // getData(form: NgForm) {
+  //   console.log(form.value)
+  //   this.service.getData(form.value.rating, form.value.genre, form.value.certification).subscribe((response) => {
+  //     this.data = response;
+  //     console.log(response);
+  //   })
+  // }
 }
