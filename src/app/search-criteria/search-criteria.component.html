@@ -1,1 +1,28 @@
-<p>search-criteria works!</p>
+<form #movieForm="ngForm" (ngSubmit)=getData(movieForm)>
+    <select name="rating" id="rating" ngModel>
+        <option value="">Select Minimum Rating</option>
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+
+    </select>
+    <select name="genre" id="genre" ngModel>
+        <option value="">Select Genre</option>
+        <option *ngFor="let genre of genreResponse?.genres" [value]="genre.id">{{genre.name}}</option>
+
+    </select>
+    <select name="certification" id="certification" ngModel>
+        <option value="">Select Rating</option>
+        <option *ngFor="let cert of certResponse?.certifications.US" [value]="cert.certification">
+            {{cert.certification}}</option>
+
+    </select>
+    <button>Submit</button>
+</form>

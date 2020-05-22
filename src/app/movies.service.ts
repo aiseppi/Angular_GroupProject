@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Movie } from './interfaces/movie';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,8 @@ export class MoviesService {
   country: string = "US";
   discoverEndpoint: string = `${this.baseUrl}/discover/movie`;
   genreEndpoint: string = `${this.baseUrl}/genre/movie/list`;;
-  certificationEndpoint: string = `${this.baseUrl}/certification/movie/list`
+  certificationEndpoint: string = `${this.baseUrl}/certification/movie/list`;
+  movie: Movie
   // runtime1: string = "with_runtime.lte";
   constructor(private http: HttpClient) { }
 
@@ -39,4 +41,6 @@ export class MoviesService {
       params: parameters
     })
   }
+
 }
+
