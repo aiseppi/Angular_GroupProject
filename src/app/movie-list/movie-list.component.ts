@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MoviesService } from '../movies.service';
 import { Movie } from '../interfaces/movie';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-movie-list',
@@ -11,16 +12,19 @@ import { Movie } from '../interfaces/movie';
 export class MovieListComponent implements OnInit {
   @Input() data: any;
   // movies: Movie[] = [];
-  constructor(private service: MoviesService) { }
+  constructor(private service: MoviesService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     // this.movies = this.service.getData()
+    this.getData();
   }
-  // getData(form: NgForm) {
-  //   console.log(form.value)
-  //   this.service.getData(form.value.rating, form.value.genre, form.value.certification).subscribe((response) => {
-  //     this.data = response;
-  //     console.log(response);
-  //   })
-  // }
+  getData() {
+    this.route.queryParams.subscribe(response => {
+      console.log(response);
+      this.service.getData(response.rating, response.genre, response.certification).subscribe((movieResponse) => {
+        this.data = movieResponse;
+        console.log(movieResponse);
+      });
+    });
+  }
 }

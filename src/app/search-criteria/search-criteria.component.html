@@ -14,7 +14,7 @@
       <option value="9">9</option>
 
     </select>
-    <select name="genre" id="genre" class="genres select" classngModel>
+    <select name="genre" id="genre" class="genres select" ngModel>
       <option value="">Select Genre</option>
       <option *ngFor="let genre of genreResponse?.genres" [value]="genre.id">{{genre.name}}</option>
 
