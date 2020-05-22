@@ -4,9 +4,13 @@
 
   <div class="movie-card" *ngFor="let result of data?.results, index as i">
 
-    <img *ngIf="data" src=" https://image.tmdb.org/t/p{{data?.results[i].poster_path}}" />
-    <!-- <img *ngIf="data" src="https://api.themoviedb.org/3/discover/movie{{data?.results[i].poster_path}}" /> -->
-    <p>Movie Title: {{data?.results[i].title}}</p>
+    <img class="movie-img" *ngIf="data"
+      src="https://image.tmdb.org/t/p/w220_and_h330_face{{data?.results[i].poster_path}}" />
+    <p>{{data?.results[i].title}}</p>
+    <p>Release Date: {{data?.results[i].release_date}}</p>
+    <p>Viewer Rating: {{data?.results[i].vote_average}}</p>
+
+
   </div>
 
 </div>
