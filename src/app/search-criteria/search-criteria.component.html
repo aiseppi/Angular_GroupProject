@@ -1,30 +1,34 @@
 <div class="searchContainer">
-  <form #movieForm="ngForm" (ngSubmit)=getData(movieForm)>
-    <select name="rating" id="rating" class="ratings select" ngModel>
-      <option value="">Select Minimum Rating</option>
-      <option value="0">0</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
+  <form class="formDiv" #movieForm="ngForm" (ngSubmit)=getData(movieForm)>
+    <div>
+      <select name="rating" id="rating" class="ratings select" ngModel>
+        <option value="">Minimum Rating</option>
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
 
-    </select>
-    <select name="genre" id="genre" class="genres select" ngModel>
-      <option value="">Select Genre</option>
-      <option *ngFor="let genre of genreResponse?.genres" [value]="genre.id">{{genre.name}}</option>
+      </select>
+      <select name="genre" id="genre" class="genres select" ngModel>
+        <option value="">Genre</option>
+        <option *ngFor="let genre of genreResponse?.genres" [value]="genre.id">{{genre.name}}</option>
 
-    </select>
-    <select name="certification" id="certification" class="certifications select" ngModel>
-      <option value="">Select Rating</option>
-      <option *ngFor="let cert of certResponse?.certifications.US" [value]="cert.certification">
-        {{cert.certification}}</option>
+      </select>
+      <select name="certification" id="certification" class="certifications select" ngModel>
+        <option value="">Rating</option>
+        <option *ngFor="let cert of certResponse?.certifications.US" [value]="cert.certification">
+          {{cert.certification}}</option>
 
-    </select>
-    <button class="form-button select">Submit</button>
+      </select>
+    </div>
+    <div class="submitButton">
+      <button class="form-button select">Submit</button>
+    </div>
   </form>
 </div>
