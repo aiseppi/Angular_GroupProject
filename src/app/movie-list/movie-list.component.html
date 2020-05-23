@@ -1,16 +1,29 @@
-<app-search-criteria></app-search-criteria>
+<div class="movie-list-container">
+  <div>
+    <div class="head_buttonDiv">
+      <h1 class="title">PirateBae<span id='secondText'>«</span></h1>
+      <div>
+        <!-- <button class="watchlistbtn"><i id="wlheart" class="fas fa-heart"></i></button> -->
+        <button class="watchlistbtn" title="view watchlist">t</button>
 
-<div class="movieListWrapper">
+      </div>
+    </div>
+  </div>
+  <app-search-criteria></app-search-criteria>
 
-  <div class="movie-card" *ngFor="let result of data?.results, index as i">
+  <div class="movieListWrapper">
 
-    <img class="movie-img" *ngIf="data"
-      src="https://image.tmdb.org/t/p/w220_and_h330_face{{data?.results[i].poster_path}}" />
-    <p>{{data?.results[i].title}}</p>
-    <p>Release Date: {{data?.results[i].release_date}}</p>
-    <p>Viewer Rating: {{data?.results[i].vote_average}}</p>
+    <div class="movie-card" *ngFor="let result of data?.results, index as i"
+      ng-repeat="result in data?.results | orderBy: '-data?.results[i].vote_average'">
 
+      <img class="movie-img" *ngIf="data"
+        src="https://image.tmdb.org/t/p/w220_and_h330_face{{data?.results[i].poster_path}}" />
+      <p class="movie-details">{{data?.results[i].title}}</p>
+      <p class="movie-details">{{data?.results[i].release_date}}</p>
+      <p class="movie-details"><i class="fas fa-star"></i> {{data?.results[i].vote_average}}</p>
+      <i id="addwlheart" class="fas fa-heart"></i>
+
+    </div>
 
   </div>
-
 </div>

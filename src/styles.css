@@ -3,3 +3,25 @@ header, body, main, h1, * {
   margin: 0;
   padding: 0
 }
+body {
+  background-image: linear-gradient(to right, #012840, #025373, #012840);
+
+}
+
+@font-face{
+  font-family: 'theaustin';
+  src: url('src/assets/fonts/The Austin.ttf') format('truetype');
+}
+@font-face{
+  font-family: 'locotv';
+  src: url('src/assets/fonts/LocoTv-rdO9.ttf') format('truetype');
+}
+@font-face{
+  font-family: 'tombats';
+  src: url('src/assets/fonts/Tombats6-VG3y.ttf') format('truetype');
+}
+@font-face{
+  font-family: 'gabba';
+  src: url('src/assets/fonts/Gabbaland-aVK9.ttf') format('truetype');
+}
+
