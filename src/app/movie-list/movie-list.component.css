@@ -101,6 +101,10 @@
   /* border: 1px solid white;
   border-radius: 50px; */
 }
+/* .moviedesc {
+ 
+} */
+
 @media screen and (min-width: 768px) {
 .head_buttonDiv {
   border-bottom: 5px ridge rgba(78, 191, 180, 0.454);

@@ -11,7 +11,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MovieListComponent implements OnInit {
   @Input() data: any;
-  // @Output() added = new EventEmitter<any>();
+  public show: boolean = false;
+  public movieDesc: any = 'Show';
   constructor(private service: MoviesService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -30,9 +31,11 @@ export class MovieListComponent implements OnInit {
   addToWatchlist(movie: any) {
     this.service.addToWatchlist(movie)
   }
-
-  //   emitTheAddedEvent() {
-  //     this.added.emit();
-  //     console.log("emit made")
-  //   }
+  showMovieDesc(): any {
+    this.show = !this.show;
+    if (this.show)
+      this.movieDesc = "Hide";
+    else
+      this.movieDesc = "Show";
+  }
 }
