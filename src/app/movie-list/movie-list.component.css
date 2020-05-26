@@ -74,7 +74,7 @@
   position: relative;
   max-width: 130px;
   text-align: center;
-    justify-content: flex-start;
+  justify-content: flex-start;
 }
 .movie-details {
   font-family: 'Oswald', sans-serif;
@@ -82,7 +82,8 @@
   font-size: 12px;
 }
 .mamadiv {
-  background-color: rgba(5, 5, 5, 0.938);
+  background-image: linear-gradient(to right, rgb(0, 0, 0), rgb(25, 26, 29));
+  box-shadow:  0 0 1px 1px #fff;
   max-width: 77%;
   padding: 5px;
   border-radius:5px;
@@ -147,6 +148,9 @@
     padding: 5px;
     /* border: 1px solid white;
     border-radius: 50px; */
+  }
+  .mamadiv {
+    max-width: 50%;
   }
 }
 
