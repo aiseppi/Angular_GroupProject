@@ -1,3 +1,14 @@
+.wltitle {
+  color: white;
+  text-align: center;
+  background: -webkit-linear-gradient(#4EBFB4,#44517B ,rgb(31, 109, 169));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: underline;
+  font-family: 'Oswald', sans-serif;
+  padding-bottom: 15px;
+  
+}
 .movie-list-container {
   background-image: linear-gradient(to right, #29282D, #2C2D32);
   border-radius: 10px;
@@ -68,7 +79,20 @@
     color: white;
     font-size: 12px;
   }
+
+.movie-title {
+  font-size: 15px;
+  font-family: 'Oswald', sans-serif;
+  color: #d3a2c8;
+}
+  .movie-card {
+    position: relative;
+  }
   .fa-trash-alt{
+    position: absolute;
+    z-index: 1;
+    top: -3px;
+    right: -3px;
     font-size: 20px;
     background: -webkit-linear-gradient( #4EBFB4, #44517B,#A54343 );
     -webkit-background-clip: text;

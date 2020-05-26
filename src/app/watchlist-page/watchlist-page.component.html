@@ -9,6 +9,7 @@
       </div>
     </div>
   </div>
+  <h1 class="wltitle">Watchlist</h1>
   <div class="movieListWrapper">
 
     <div class="movie-card" *ngFor="let movie of movies, index as i"
@@ -16,7 +17,7 @@
 
       <img class="movie-img" *ngIf="movies"
         src="https://image.tmdb.org/t/p/w220_and_h330_face{{movies[i].poster_path}}" />
-      <p class="movie-details">{{movies[i].title}}</p>
+      <p class=" movie-title">{{movies[i].title}}</p>
       <p class="movie-details">{{movies[i].release_date}}</p>
       <p class="movie-details"><i class="fas fa-star"></i> {{movies[i].vote_average}}</p>
       <i class="fas fa-trash-alt" (click)=removeFromWatchlist(i)></i>

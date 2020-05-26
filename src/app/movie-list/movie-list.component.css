@@ -48,9 +48,10 @@
     margin-right:10px;
 }
 
+
   #wlheart {
     font-size: 30px;
-    /* padding-right: 10px; */
+    padding-right: 10px;
     padding: 5px;
     background: -webkit-linear-gradient( #4EBFB4, #44517B,#A54343 );
     -webkit-background-clip: text;
@@ -80,6 +81,11 @@
   font-family: 'Oswald', sans-serif;
   color: white;
   font-size: 12px;
+}
+.movie-title {
+  font-family: 'Oswald', sans-serif;
+  color: #d3a2c8;
+  font-size: 15px;
 }
 .mamadiv {
   background-image: linear-gradient(to right, rgb(0, 0, 0), rgb(25, 26, 29));
@@ -116,8 +122,19 @@
 .fa-star {
   color: goldenrod;
 }
-#addwlheart {
-  font-size: 20px;
+
+
+
+.movie-card {
+  position: relative;
+}
+#addwlheart{
+  position: absolute;
+  z-index: 1;
+  top: -6px;
+  right: -10px;
+  padding: 5px;
+  font-size: 30px;
   background: -webkit-linear-gradient( #4EBFB4, #44517B,#A54343 );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -138,7 +155,6 @@
 }
   .movie-card {
     position: relative;
- 
   }
   #addwlheart {
     position: absolute;

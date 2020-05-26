@@ -19,7 +19,7 @@
       <img class="movie-img" *ngIf="data"
         src="https://image.tmdb.org/t/p/w220_and_h330_face{{data?.results[i].poster_path}}" (click)="showMovieDesc()"
         (click)=addToDescs(desc) />
-      <p class="movie-details">{{data?.results[i].title}}</p>
+      <p class="movie-title">{{data?.results[i].title}}</p>
       <p class="movie-details">{{data?.results[i].release_date}}</p>
       <p class="movie-details"><i class="fas fa-star"></i> {{data?.results[i].vote_average}}</p>
       <i id="addwlheart" class="fas fa-heart" (click)=addToWatchlist(result)></i>
