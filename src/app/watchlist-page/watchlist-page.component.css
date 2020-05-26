@@ -1,0 +1,100 @@
+.movie-list-container {
+  background-image: linear-gradient(to right, #29282D, #2C2D32);
+  border-radius: 10px;
+  padding: 1px;
+  box-shadow:  0 0 5px 1px #fff;  /* inner */
+  /* 0 0 20px 10px #025373; middle */
+  /* 0 0 20px 10px #012840; /* outer */ 
+}
+.head_buttonDiv{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  }
+  .title{
+    padding-left:10px;
+    font-size: 70px;
+    font-family: 'theaustin';
+    /* font-family: 'locotv'; */
+    /* color: rgb(66,66,66); */
+    /* color: #5FD9CD; */
+    /* text-shadow: 2px 3px rgba(255, 255, 255, 0.166); */
+    background: -webkit-linear-gradient(#A54343, #44517B,#4EBFB4 );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+#secondText {
+    font-family: "gabba";
+    /* font-size: 20px; */
+  }
+.watchlistbtn {
+    background: none;
+    border:none;
+    font-family: 'tombats';
+    font-size: 75px;
+    background: -webkit-linear-gradient( #4EBFB4, #44517B,#A54343 );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-right:10px;
+  }
+  .movieListWrapper{
+    min-height: 100vh;
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+  .movie-card {
+    background-color: rgba(5, 5, 5, 0.164);
+    margin: 10px;
+    padding: 5px;
+    border-radius:5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    max-width: 130px;
+    max-height: 280px;
+    text-align: center;
+      justify-content: flex-start;
+  }
+  .movie-img {
+    max-width: 150px;
+    max-height: 200px;
+  }
+  
+  .movie-details {
+    font-family: 'Oswald', sans-serif;
+    color: white;
+    font-size: 12px;
+  }
+  .fa-trash-alt{
+    font-size: 20px;
+    background: -webkit-linear-gradient( #4EBFB4, #44517B,#A54343 );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* position: absolute;
+    top: -6px;
+    right: -10px;
+    padding: 5px; */
+    /* border: 1px solid white;
+    border-radius: 50px; */
+  }
+  @media screen and (min-width: 768px) {
+    .head_buttonDiv {
+      border-bottom: 5px ridge rgba(78, 191, 180, 0.454);
+    }
+      .movie-card {
+        position: relative;
+     
+      }
+      .fa-trash-alt{
+        position: absolute;
+        z-index: 1;
+        top: -6px;
+        right: -10px;
+        padding: 5px;
+        /* border: 1px solid white;
+        border-radius: 50px; */
+      }
+    }

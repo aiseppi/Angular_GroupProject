@@ -1,10 +1,27 @@
-<div>
-  <div class="head_buttonDiv">
-    <h1 class="title">PirateBae<span id='secondText'>«</span></h1>
-    <div>
-      <!-- <button class="watchlistbtn"><i id="wlheart" class="fas fa-heart"></i></button> -->
-      <button class="watchlistbtn" title="view watchlist" routerLink="/watchlist">t</button>
+<div class="movie-list-container">
+  <div>
+    <div class="head_buttonDiv">
+      <h1 class="title" routerLink="/movielist">PirateBae<span id='secondText'>«</span></h1>
+      <div>
+        <!-- <button class="watchlistbtn"><i id="wlheart" class="fas fa-heart"></i></button> -->
+        <button class="watchlistbtn" title="view watchlist" routerLink="/watchlist">t</button>
+
+      </div>
+    </div>
+  </div>
+  <div class="movieListWrapper">
+
+    <div class="movie-card" *ngFor="let movie of movies, index as i"
+      ng-repeat="result in movies? | orderBy: '-movies[i].vote_average'">
+
+      <img class="movie-img" *ngIf="movies"
+        src="https://image.tmdb.org/t/p/w220_and_h330_face{{movies[i].poster_path}}" />
+      <p class="movie-details">{{movies[i].title}}</p>
+      <p class="movie-details">{{movies[i].release_date}}</p>
+      <p class="movie-details"><i class="fas fa-star"></i> {{movies[i].vote_average}}</p>
+      <i class="fas fa-trash-alt" (click)=removeFromWatchlist(i)></i>
 
     </div>
+
   </div>
 </div>
