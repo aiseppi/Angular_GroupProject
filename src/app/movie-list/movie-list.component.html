@@ -3,7 +3,6 @@
     <div class="head_buttonDiv">
       <h1 class="title">PirateBae<span id='secondText'>«</span></h1>
       <div>
-        <!-- <button class="watchlistbtn"><i id="wlheart" class="fas fa-heart"></i></button> -->
         <button class="watchlistbtn" title="view watchlist" routerLink="/watchlist">t</button>
 
       </div>
@@ -12,12 +11,9 @@
   <app-search-criteria (submitted)="onSubmit($event)"></app-search-criteria>
 
   <div class="movieListWrapper">
-    <!-- <div *ngFor="let movie of data">
-      <p>{{movie.title}}</p>
-    </div> -->
-    <div class="movie-card" *ngFor="let movie of data; index as i">
+    <div class="movie-card" *ngFor="let movie of movies; index as i">
 
-      <img class="movie-img" *ngIf="data" src="https://image.tmdb.org/t/p/w220_and_h330_face{{movie.poster_path}}"
+      <img class="movie-img" src="https://image.tmdb.org/t/p/w220_and_h330_face{{movie.poster_path}}"
         (click)="showMovieDesc(i)" />
       <p class="movie-title">{{movie.title}}</p>
       <p class="movie-details">{{movie.release_date}}</p>

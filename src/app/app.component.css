@@ -1,15 +1,7 @@
 .wrapper{
-  /* background-color: white; */
-  /* background-image: linear-gradient(to right, #012840, #025373); */
-  /* background-image: linear-gradient(to right, #1F1E2E,#4B4762, #1F1E2E); */
-  /* background-image: linear-gradient(to right, #72708B, #78748C, #8C7290); */
-
   background-image: linear-gradient(217deg, rgb(68, 118, 129, .8), rgb(68, 118, 129, 0) 70.71%),
   linear-gradient(127deg, rgba(64, 81, 115,.8), rgb(64, 81, 115,0) 70.71%),
   linear-gradient(336deg, rgb(68, 81, 123, .8), rgb(68, 81, 123) 70.71%);
-/* background-position: center;  
-background-repeat: no-repeat;
-  background-size: cover; */
   display: flex;
   flex-direction: column;
   padding-left: 10%;
@@ -17,7 +9,3 @@ background-repeat: no-repeat;
   padding-top: 1%;
 }
 
-/* .router{
-  flex: 1;
-  min-height: 100vh
-} */

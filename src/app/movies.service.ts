@@ -14,25 +14,16 @@ export class MoviesService {
   certificationEndpoint: string = `${this.baseUrl}/certification/movie/list`;
   popularEndpoint: string = `${this.baseUrl}/movie/popular`
   movies: any = [];
-  descriptions: any = [];
-  // movie: Movie[] =
-  //   [
-  //     {
-  //       posterPath: "/c01Y4suApJ1Wic2xLmaq1QYcfoZ.jpg",
-  //       title: "Fight Club",
-  //       voteAverage: 10,
-  //     }
-  //   ]
-  // runtime1: string = "with_runtime.lte";
+
   constructor(private http: HttpClient) { }
 
-  getGenres() {
+  getGenres(): any {
     return this.http.get(this.genreEndpoint, {
       params: { api_key: this.apiKey }
     })
   }
 
-  getCerts() {
+  getCerts(): any {
     return this.http.get(this.certificationEndpoint, {
       params: { api_key: this.apiKey }
     })
@@ -46,7 +37,6 @@ export class MoviesService {
     parameters["vote_average.gte"] = rating;
     parameters.with_genres = genre;
     parameters.certification = certification;
-
 
     return this.http.get(this.discoverEndpoint, {
       params: parameters
@@ -64,23 +54,4 @@ export class MoviesService {
     this.movies.push(movie);
     console.log(this.movies)
   }
-  getDescs(): any {
-    return this.descriptions
-  }
-  addToDescs(desc: any): any {
-    this.descriptions.pop();
-    this.descriptions.push(desc);
-  }
-
-  // setData(movies: Movie[]): void {
-
-  // }
-
-  //   getMovies(poster, title, genre, certification, rating): any {
-  //     let parameters: any = {
-  //       api_key: this.apiKey,
-  //     };
-  // parameters.poster_path = poster
-  //   }
 }
-

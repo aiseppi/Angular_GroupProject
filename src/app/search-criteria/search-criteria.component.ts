@@ -11,27 +11,21 @@ import { Router } from '@angular/router';
 export class SearchCriteriaComponent implements OnInit {
   @Output() submitted = new EventEmitter<any>();
   data: any;
-  genreResponse: any;
-  certResponse: any;
+  genres: any;
+  certifications: any;
   constructor(private router: Router, private service: MoviesService) { }
 
 
   ngOnInit(): void {
     this.service.getGenres().subscribe((response) => {
-      this.genreResponse = response;
-      console.log(response);
+      this.genres = response.genres;
     });
     this.service.getCerts().subscribe((response) => {
-      this.certResponse = response;
-      console.log(response);
+      this.certifications = response.certifications.US;
     })
   }
-  getData(form: NgForm) {
+  submitForm(form: NgForm) {
     this.submitted.emit(form);
-    this.router.navigate(["movielist"], {
-      queryParams: { rating: form.value.rating, genre: form.value.genre, certification: form.value.certification }
-    });
-    console.log(form.value)
 
   }
 }

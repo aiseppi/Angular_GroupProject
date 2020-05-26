@@ -1,5 +1,5 @@
 <div class="searchContainer">
-  <form class="formDiv" #movieForm="ngForm" (ngSubmit)=getData(movieForm)>
+  <form class="formDiv" #movieForm="ngForm" (ngSubmit)=submitForm(movieForm)>
     <div>
       <select name="rating" id="rating" class="ratings select" ngModel>
         <option value="">Minimum Rating</option>
@@ -17,12 +17,12 @@
       </select>
       <select name="genre" id="genre" class="genres select" ngModel>
         <option value="">Genre</option>
-        <option *ngFor="let genre of genreResponse?.genres" [value]="genre.id">{{genre.name}}</option>
+        <option *ngFor="let genre of genres" [value]="genre.id">{{genre.name}}</option>
 
       </select>
       <select name="certification" id="certification" class="certifications select" ngModel>
         <option value="">Rating</option>
-        <option *ngFor="let cert of certResponse?.certifications.US" [value]="cert.certification">
+        <option *ngFor="let cert of certifications" [value]="cert.certification">
           {{cert.certification}}</option>
 
       </select>

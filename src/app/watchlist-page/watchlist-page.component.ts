@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MoviesService } from '../movies.service';
 
@@ -8,7 +8,6 @@ import { MoviesService } from '../movies.service';
   styleUrls: ['./watchlist-page.component.css']
 })
 export class WatchlistPageComponent implements OnInit {
-  // @Input() data: any;
   movies: any = []
   constructor(private service: MoviesService, private route: ActivatedRoute) { }
 
