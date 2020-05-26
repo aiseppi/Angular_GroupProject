@@ -13,6 +13,7 @@ export class MoviesService {
   genreEndpoint: string = `${this.baseUrl}/genre/movie/list`;;
   certificationEndpoint: string = `${this.baseUrl}/certification/movie/list`;
   movies: any = [];
+  descriptions: any = [];
   // movie: Movie[] =
   //   [
   //     {
@@ -56,6 +57,13 @@ export class MoviesService {
   addToWatchlist(movie: any): any {
     this.movies.push(movie);
     console.log(this.movies)
+  }
+  getDescs(): any {
+    return this.descriptions
+  }
+  addToDescs(desc: any): any {
+    this.descriptions.pop();
+    this.descriptions.push(desc);
   }
 
   // setData(movies: Movie[]): void {

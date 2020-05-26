@@ -76,16 +76,42 @@
   text-align: center;
     justify-content: flex-start;
 }
-.movie-img {
-  max-width: 150px;
-  max-height: 200px;
-}
-
 .movie-details {
   font-family: 'Oswald', sans-serif;
   color: white;
   font-size: 12px;
 }
+.mamadiv {
+  background-color: rgba(5, 5, 5, 0.938);
+  max-width: 77%;
+  padding: 5px;
+  border-radius:5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 20;
+  text-align: center;
+  justify-content: flex-start;
+
+}
+.movieDescrips{
+  font-family: 'Oswald', sans-serif;
+  color: white;
+  font-size: 18px;
+}
+.descTitle{
+  font-size: 30px;
+  background: -webkit-linear-gradient(#A54343, #44517B,#4EBFB4 );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.movie-img {
+  max-width: 150px;
+  max-height: 200px;
+}
+
 .fa-star {
   color: goldenrod;
 }

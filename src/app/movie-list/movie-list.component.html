@@ -13,8 +13,9 @@
 
   <div class="movieListWrapper">
 
-    <div class="movie-card" *ngFor="let result of data?.results, index as i"
-      ng-repeat="result in data?.results | orderBy: '-data?.results[i].vote_average'" (click)="showMovieDesc()">
+    <div class="movie-card" *ngFor="let result of data?.results, let desc of descriptions, index as i"
+      ng-repeat="result in data?.results | orderBy: '-data?.results[i].vote_average'" (click)="showMovieDesc()"
+      (click)=addToDescs(desc)>
 
       <img class="movie-img" *ngIf="data"
         src="https://image.tmdb.org/t/p/w220_and_h330_face{{data?.results[i].poster_path}}" />
@@ -24,10 +25,10 @@
       <i id="addwlheart" class="fas fa-heart" (click)=addToWatchlist(result)></i>
 
     </div>
-    <div class="mamadiv" *ngIf="show">
-      <div *ngFor="let result of data?.results, index as i" class="moviedesc">
-        <p class="movie-details">{{data?.results[i].title}}</p>
-        <p class="movie-details">{{data?.results[i].overview}}</p>
+    <div class="mamadiv" *ngIf="show" (click)="hideMovieDesc()">
+      <div *ngFor="let desc of descriptions, index as i" class="moviedesc">
+        <p class="movieDescrips descTitle">{{descriptions[i].title}}</p>
+        <p class="movieDescrips">{{descriptions[i].overview}}</p>
       </div>
     </div>
   </div>

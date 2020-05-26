@@ -13,10 +13,11 @@ export class MovieListComponent implements OnInit {
   @Input() data: any;
   public show: boolean = false;
   public movieDesc: any = 'Show';
+  descriptions: any = [];
   constructor(private service: MoviesService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    // this.movies = this.service.getData()
+    this.descriptions = this.service.getDescs();
     this.getData();
   }
   getData() {
@@ -31,11 +32,22 @@ export class MovieListComponent implements OnInit {
   addToWatchlist(movie: any) {
     this.service.addToWatchlist(movie)
   }
+  addToDescs(desc: any) {
+    this.service.addToDescs(desc);
+    console.log(this.descriptions)
+  }
   showMovieDesc(): any {
     this.show = !this.show;
-    if (this.show)
-      this.movieDesc = "Hide";
-    else
-      this.movieDesc = "Show";
+    // if (this.show)
+    //   this.movieDesc = "Hide";
+    // else
+    //   this.movieDesc = "Show";
+  }
+  hideMovieDesc(): any {
+    this.show = !this.show;
+    // if (this.show)
+    //   this.movieDesc = "Hide";
+    // else
+    //   this.movieDesc = "Show";
   }
 }
