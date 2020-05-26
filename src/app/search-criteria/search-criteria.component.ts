@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MoviesService } from '../movies.service';
 import { Router } from '@angular/router';
@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./search-criteria.component.css']
 })
 export class SearchCriteriaComponent implements OnInit {
+  @Output() submitted = new EventEmitter<any>();
   data: any;
   genreResponse: any;
   certResponse: any;
@@ -26,6 +27,7 @@ export class SearchCriteriaComponent implements OnInit {
     })
   }
   getData(form: NgForm) {
+    this.submitted.emit(form);
     this.router.navigate(["movielist"], {
       queryParams: { rating: form.value.rating, genre: form.value.genre, certification: form.value.certification }
     });

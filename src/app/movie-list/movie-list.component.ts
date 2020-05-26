@@ -2,7 +2,7 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MoviesService } from '../movies.service';
 import { Movie } from '../interfaces/movie';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie-list',
@@ -10,25 +10,36 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./movie-list.component.css']
 })
 export class MovieListComponent implements OnInit {
-  @Input() data: any;
-  public show: boolean = false;
-  public movieDesc: any = 'Show';
+  data: any;
+  showIndex: number = null;
+  movieDesc: any = 'Show';
   descriptions: any = [];
-  constructor(private service: MoviesService, private route: ActivatedRoute) { }
+  constructor(private service: MoviesService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.descriptions = this.service.getDescs();
-    this.getData();
-  }
-  getData() {
     this.route.queryParams.subscribe(response => {
-      console.log(response);
-      this.service.getData(response.rating, response.genre, response.certification).subscribe((movieResponse) => {
-        this.data = movieResponse;
-        console.log(movieResponse);
-      });
+      if (response.rating || response.genre || response.certification) {
+        this.service.getData(response.rating, response.genre, response.certification).subscribe((movieResponse) => {
+          this.data = movieResponse.results;
+        });
+      } else {
+        this.service.getPopMovies().subscribe(response => {
+          this.data = response.results;
+        })
+      }
     });
-  };
+  }
+  onSubmit(form: NgForm) {
+    this.router.navigate(["movielist"], {
+      queryParams: {
+        rating: form.value.rating,
+        genre: form.value.genre,
+        certification: form.value.certification
+      }
+    })
+
+  }
   addToWatchlist(movie: any) {
     this.service.addToWatchlist(movie)
   }
@@ -36,15 +47,15 @@ export class MovieListComponent implements OnInit {
     this.service.addToDescs(desc);
     console.log(this.descriptions)
   }
-  showMovieDesc(): any {
-    this.show = !this.show;
+  showMovieDesc(index: number): any {
+    this.showIndex = index
     // if (this.show)
     //   this.movieDesc = "Hide";
     // else
     //   this.movieDesc = "Show";
   }
   hideMovieDesc(): any {
-    this.show = !this.show;
+    this.showIndex = null;
     // if (this.show)
     //   this.movieDesc = "Hide";
     // else

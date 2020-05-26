@@ -90,7 +90,7 @@
 .mamadiv {
   background-image: linear-gradient(to right, rgb(0, 0, 0), rgb(25, 26, 29));
   box-shadow:  0 0 1px 1px #fff;
-  max-width: 77%;
+  max-width: 100%;
   padding: 5px;
   border-radius:5px;
   display: flex;
@@ -101,7 +101,9 @@
   z-index: 20;
   text-align: center;
   justify-content: flex-start;
-
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 .movieDescrips{
   font-family: 'Oswald', sans-serif;

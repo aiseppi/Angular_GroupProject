@@ -12,6 +12,7 @@ export class MoviesService {
   discoverEndpoint: string = `${this.baseUrl}/discover/movie`;
   genreEndpoint: string = `${this.baseUrl}/genre/movie/list`;;
   certificationEndpoint: string = `${this.baseUrl}/certification/movie/list`;
+  popularEndpoint: string = `${this.baseUrl}/movie/popular`
   movies: any = [];
   descriptions: any = [];
   // movie: Movie[] =
@@ -49,6 +50,11 @@ export class MoviesService {
 
     return this.http.get(this.discoverEndpoint, {
       params: parameters
+    })
+  }
+  getPopMovies(): any {
+    return this.http.get(this.popularEndpoint, {
+      params: { api_key: this.apiKey }
     })
   }
   getWatchlist(): any {

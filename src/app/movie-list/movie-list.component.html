@@ -9,26 +9,25 @@
       </div>
     </div>
   </div>
-  <app-search-criteria></app-search-criteria>
+  <app-search-criteria (submitted)="onSubmit($event)"></app-search-criteria>
 
   <div class="movieListWrapper">
+    <!-- <div *ngFor="let movie of data">
+      <p>{{movie.title}}</p>
+    </div> -->
+    <div class="movie-card" *ngFor="let movie of data; index as i">
 
-    <div class="movie-card" *ngFor="let result of data?.results, let desc of descriptions, index as i"
-      ng-repeat="result in data?.results | orderBy: '-data?.results[i].vote_average'">
-
-      <img class="movie-img" *ngIf="data"
-        src="https://image.tmdb.org/t/p/w220_and_h330_face{{data?.results[i].poster_path}}" (click)="showMovieDesc()"
-        (click)=addToDescs(desc) />
-      <p class="movie-title">{{data?.results[i].title}}</p>
-      <p class="movie-details">{{data?.results[i].release_date}}</p>
-      <p class="movie-details"><i class="fas fa-star"></i> {{data?.results[i].vote_average}}</p>
-      <i id="addwlheart" class="fas fa-heart" (click)=addToWatchlist(result)></i>
-
-    </div>
-    <div class="mamadiv" *ngIf="show" (click)="hideMovieDesc()">
-      <div *ngFor="let desc of descriptions, index as i" class="moviedesc">
-        <p class="movieDescrips descTitle">{{descriptions[i].title}}</p>
-        <p class="movieDescrips">{{descriptions[i].overview}}</p>
+      <img class="movie-img" *ngIf="data" src="https://image.tmdb.org/t/p/w220_and_h330_face{{movie.poster_path}}"
+        (click)="showMovieDesc(i)" />
+      <p class="movie-title">{{movie.title}}</p>
+      <p class="movie-details">{{movie.release_date}}</p>
+      <p class="movie-details"><i class="fas fa-star"></i> {{movie.vote_average}}</p>
+      <i id="addwlheart" class="fas fa-heart" (click)=addToWatchlist(movie)></i>
+      <div class="mamadiv" *ngIf="showIndex === i" (click)="hideMovieDesc()">
+        <div class="moviedesc">
+          <p class="movieDescrips descTitle">{{movie.title}}</p>
+          <p class="movieDescrips">{{movie.overview}}</p>
+        </div>
       </div>
     </div>
   </div>
