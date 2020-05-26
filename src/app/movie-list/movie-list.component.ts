@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MoviesService } from '../movies.service';
 import { Movie } from '../interfaces/movie';
@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MovieListComponent implements OnInit {
   @Input() data: any;
-  // movies: Movie[] = [];
+  // @Output() added = new EventEmitter<any>();
   constructor(private service: MoviesService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -26,5 +26,13 @@ export class MovieListComponent implements OnInit {
         console.log(movieResponse);
       });
     });
+  };
+  addToWatchlist(movie: any) {
+    this.service.addToWatchlist(movie)
   }
+
+  //   emitTheAddedEvent() {
+  //     this.added.emit();
+  //     console.log("emit made")
+  //   }
 }

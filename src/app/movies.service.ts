@@ -12,14 +12,15 @@ export class MoviesService {
   discoverEndpoint: string = `${this.baseUrl}/discover/movie`;
   genreEndpoint: string = `${this.baseUrl}/genre/movie/list`;;
   certificationEndpoint: string = `${this.baseUrl}/certification/movie/list`;
-  movie: Movie[] =
-    [
-      {
-        posterPath: "/c01Y4suApJ1Wic2xLmaq1QYcfoZ.jpg",
-        title: "Fight Club",
-        voteAverage: 10,
-      }
-    ]
+  movies: any = [];
+  // movie: Movie[] =
+  //   [
+  //     {
+  //       posterPath: "/c01Y4suApJ1Wic2xLmaq1QYcfoZ.jpg",
+  //       title: "Fight Club",
+  //       voteAverage: 10,
+  //     }
+  //   ]
   // runtime1: string = "with_runtime.lte";
   constructor(private http: HttpClient) { }
 
@@ -49,8 +50,16 @@ export class MoviesService {
       params: parameters
     })
   }
+  getWatchlist(): any {
+    return this.movies
+  };
+  addToWatchlist(movie: any): any {
+    this.movies.push(movie);
+    console.log(this.movies)
+  }
+
   // setData(movies: Movie[]): void {
-  //   
+
   // }
 
   //   getMovies(poster, title, genre, certification, rating): any {
