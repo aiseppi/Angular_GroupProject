@@ -97,17 +97,13 @@
     background: -webkit-linear-gradient( #4EBFB4, #44517B,#A54343 );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    /* position: absolute;
-    top: -6px;
-    right: -10px;
-    padding: 5px; */
-    /* border: 1px solid white;
-    border-radius: 50px; */
+ 
   }
   @media screen and (min-width: 768px) {
     .head_buttonDiv {
       border-bottom: 5px ridge rgba(78, 191, 180, 0.454);
     }
+    
       .movie-card {
         position: relative;
      
@@ -118,7 +114,5 @@
         top: -6px;
         right: -10px;
         padding: 5px;
-        /* border: 1px solid white;
-        border-radius: 50px; */
       }
     }

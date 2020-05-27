@@ -133,7 +133,7 @@
 }
 .addedToWL {
 
-  background: -webkit-linear-gradient( rgb(191, 108, 78), rgb(184, 134, 48),#A54343 );
+  background: -webkit-linear-gradient(#6f2960,#817acd , #d3a2c8 );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
