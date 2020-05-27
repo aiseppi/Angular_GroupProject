@@ -13,7 +13,7 @@ export class MoviesService {
   genreEndpoint: string = `${this.baseUrl}/genre/movie/list`;;
   certificationEndpoint: string = `${this.baseUrl}/certification/movie/list`;
   popularEndpoint: string = `${this.baseUrl}/movie/popular`
-  movies: any = [];
+  watchListMovies: any = [];
 
   constructor(private http: HttpClient) { }
 
@@ -48,10 +48,9 @@ export class MoviesService {
     })
   }
   getWatchlist(): any {
-    return this.movies
+    return this.watchListMovies
   };
   addToWatchlist(movie: any): any {
-    this.movies.push(movie);
-    console.log(this.movies)
+    this.watchListMovies.push(movie);
   }
 }

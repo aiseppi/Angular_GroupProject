@@ -18,7 +18,7 @@
       <p class="movie-title">{{movie.title}}</p>
       <p class="movie-details">{{movie.release_date}}</p>
       <p class="movie-details"><i class="fas fa-star"></i> {{movie.vote_average}}</p>
-      <i id="addwlheart" class="fas fa-heart" (click)=addToWatchlist(movie)></i>
+      <i class="fas fa-heart" (click)=addToWatchlist(movie) [ngClass]="{'addedToWL': movie.isClicked}"></i>
       <div class="mamadiv" *ngIf="showIndex === i" (click)="hideMovieDesc()">
         <div class="moviedesc">
           <p class="movieDescrips descTitle">{{movie.title}}</p>

@@ -2,9 +2,7 @@
   background-image: linear-gradient(to right, #29282D, #2C2D32);
   border-radius: 10px;
   padding: 1px;
-  box-shadow:  0 0 5px 1px #fff;  /* inner */
-  /* 0 0 20px 10px #025373; middle */
-  /* 0 0 20px 10px #012840; /* outer */ 
+  box-shadow:  0 0 5px 1px #fff; 
 }
 .head_buttonDiv{
   display: flex;
@@ -48,15 +46,6 @@
     margin-right:10px;
 }
 
-
-  #wlheart {
-    font-size: 30px;
-    padding-right: 10px;
-    padding: 5px;
-    background: -webkit-linear-gradient( #4EBFB4, #44517B,#A54343 );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
 .movieListWrapper{
   min-height: 100vh;
   display: flex; 
@@ -130,26 +119,24 @@
 .movie-card {
   position: relative;
 }
-#addwlheart{
+.fa-heart{
   position: absolute;
   z-index: 1;
   top: -6px;
   right: -10px;
   padding: 5px;
   font-size: 30px;
+
   background: -webkit-linear-gradient( #4EBFB4, #44517B,#A54343 );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  /* position: absolute;
-  top: -6px;
-  right: -10px;
-  padding: 5px; */
-  /* border: 1px solid white;
-  border-radius: 50px; */
 }
-/* .moviedesc {
- 
-} */
+.addedToWL {
+
+  background: -webkit-linear-gradient( rgb(191, 108, 78), rgb(184, 134, 48),#A54343 );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
 @media screen and (min-width: 768px) {
 .head_buttonDiv {
@@ -158,15 +145,14 @@
   .movie-card {
     position: relative;
   }
-  #addwlheart {
+  /* #addwlheart {
     position: absolute;
     z-index: 1;
     top: -6px;
     right: -10px;
     padding: 5px;
-    /* border: 1px solid white;
-    border-radius: 50px; */
-  }
+  
+  } */
   .mamadiv {
     max-width: 50%;
   }

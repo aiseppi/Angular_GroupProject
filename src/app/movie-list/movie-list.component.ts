@@ -9,19 +9,23 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./movie-list.component.css']
 })
 export class MovieListComponent implements OnInit {
-  movies: any;
+  movies: any = [];
   showIndex: number = null;
+  watchListMovies: any = [];
   constructor(private service: MoviesService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
+    this.watchListMovies = this.service.getWatchlist()
     this.route.queryParams.subscribe(response => {
       if (response.rating || response.genre || response.certification) {
         this.service.getData(response.rating, response.genre, response.certification).subscribe((movieResponse) => {
           this.movies = movieResponse.results;
+          this.addIsClicked();
         });
       } else {
         this.service.getPopMovies().subscribe(response => {
           this.movies = response.results;
+          this.addIsClicked();
         })
       }
     });
@@ -37,7 +41,30 @@ export class MovieListComponent implements OnInit {
 
   }
   addToWatchlist(movie: any) {
-    this.service.addToWatchlist(movie)
+    if (this.checkDuplicate(movie)) {
+      let index = this.watchListMovies.findIndex((listItem) => {
+        return listItem.id === movie.id
+      })
+      this.watchListMovies.splice(index, 1);
+      movie.isClicked = false;
+    } else {
+      movie.isClicked = true;
+      console.log(movie);
+      this.service.addToWatchlist(movie)
+    }
+  }
+  checkDuplicate(movie: any): boolean {
+    return this.watchListMovies.some((watchListMovie) => {
+      return watchListMovie.id === movie.id;
+    })
+  }
+  addIsClicked() {
+    this.movies.forEach(listItem => {
+      if (this.checkDuplicate(listItem)) {
+        listItem.isClicked = true;
+      }
+    });
+
   }
 
   showMovieDesc(index: number): any {
